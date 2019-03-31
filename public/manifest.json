@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "MarioPlan",
+  "name": "A simple event planner app",
   "icons": [
     {
       "src": "favicon.ico",
