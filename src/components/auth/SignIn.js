@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
+
 import { signIn } from '../../store/actions/authActions';
 
 class SignIn extends Component {
@@ -20,7 +23,9 @@ class SignIn extends Component {
   };
 
   render() {
-    const { authError } = this.props;
+    const { authError, auth } = this.props;
+
+    if (auth.uid) return <Redirect to="/" />;
 
     return (
       <div className="container">
@@ -35,10 +40,18 @@ class SignIn extends Component {
             <input type="password" id="password" onChange={this.handleChange} />
           </div>
           <div className="input-field">
-            <button className="btn blue-grey darken-4 z-depth-0">Log In</button>
+            <button className="btn blue-grey darken-4 z-depth-0">
+              Sign In
+            </button>
             <div className="red-text center">
               {authError ? <p>{authError}</p> : null}
             </div>
+          </div>
+          <div className="input-field">
+            Don't have an account?
+            <Link to={'/signup'} className="waves-effect waves-teal btn-flat">
+              Sign Up
+            </Link>
           </div>
         </form>
       </div>
@@ -48,7 +61,8 @@ class SignIn extends Component {
 
 const mapStateToProps = state => {
   return {
-    authError: state.auth.authError
+    authError: state.auth.authError,
+    auth: state.firebase.auth
   };
 };
 
