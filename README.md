@@ -1,6 +1,6 @@
 # MarioPlan
 
-> A simple event planner app built with React.
+> A simple event planner app built using React, Redux and Firebase and also using cloud functions for showing real-time notifications.
 
 ### Version
 
