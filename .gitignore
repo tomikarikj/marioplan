@@ -6,6 +6,9 @@
 # config
 /src/config
 
+# firebase
+firebase-debug.log
+
 # testing
 /coverage
 
